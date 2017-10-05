@@ -1,0 +1,12 @@
+--- 
+- name: "Install ansible"
+  yum: "name=ansible state=latest"
+- name: "Install python"
+  with_items:
+    - https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    - python-devel
+    - gcc
+    - python-pip
+  yum: 
+    name: "{{ item }}"
+    state: present
